@@ -1,22 +1,37 @@
-recurly_retention_reports
+Recurly Subscription Retention Report
 =========================
 
-Recurly is a payment platform for managing subscription services.
+Recurly is a payment platform for managing subscription services. 
 
-These are a set of command line tools that will help you analyze your retention 
-rates for your subscription plans. You can run these reports against csv exports
-of your account data, available at:
+It has a built in report for tracking subscription retention rates by month at: https://your_account_name.recurly.com/reports/subscriber_retention . 
 
-https://your_account_name.recurly.com/exports/new#subscriptions
+![Subscriber Retention](https://static-sc.recurly.com/assets/features/retention-report-a09cb3e1526095c7965c2b4653cf0d10.png)
 
-*Usage*
+Recurly's built in report is great, but doesn't let you change the reporting periods which can come in very handle when analyzing churn.
 
-Filename is the only required arguement. The script will default to a start date of now, cohort size of 7 days, retention period size of 7 days, and no filtering on which plan code to analyze.
+This repo is a simple python script that will analyze your subscription data and generate a CSV with your retention rates by cohort & period. I recommend looking at your data broken down by a period of 1 day, and 7 days if you're just starting to dig into your churn rates. Using excel's conditional formatting and adding a color scale to the file in excel is also very handy.
+
+## Usage
+
+* Git clone this repo.
 ```bash
-python churn_by_cohort.py -f [path to subscriptions csv export] -p [plan code] - c-r=[retention unit size] -s [start date e.g. 03-07-13]
+git clone https://github.com/MattTheRed/recurly_retention_reports
 ```
 
-Options:
+* Download a csv export of your subscription data from recurly at:
+https://your_account_name.recurly.com/exports/new#subscriptions
+
+* Run the following command. Filename is the only required arguement. The script will default to a start date of now, cohort size of 7 days, retention period size of 7 days, and no filtering on which plan code to analyze.
+```bash
+python churn_by_cohort.py -f [path to subscriptions csv export] 
+```
+
+Or included additional options.
+```bash
+python churn_by_cohort.py -f [path to subscriptions csv export] -p [plan code] -c [cohort size] -r=[retention unit size] -s [start date e.g. 03-07-13]
+```
+
+## Additional Options:
 ```bash
  -h, --help            show this help message and exit
   -f FILE, --file FILE  Filename of subscriptions csv from exported from
