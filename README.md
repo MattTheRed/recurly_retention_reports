@@ -1,13 +1,9 @@
 Recurly Subscription Retention Report
 =========================
 
-Recurly is a payment platform for managing subscription services. 
+Recurly is a payment platform for managing subscription services. It has a built in report for tracking subscription retention rates by month at: https://your_account_name.recurly.com/reports/subscriber_retention
 
-It has a built in report for tracking subscription retention rates by month at: https://your_account_name.recurly.com/reports/subscriber_retention . 
-
-![Subscriber Retention](https://static-sc.recurly.com/assets/features/retention-report-a09cb3e1526095c7965c2b4653cf0d10.png)
-
-Recurly's built in report is great, but doesn't let you change the reporting periods which can come in very handle when analyzing churn.
+Recurly's built in report is great, but doesn't let you change the cohort size or reporting periods, which can come in very handle when analyzing churn.
 
 This repo is a simple python script that will analyze your subscription data and generate a CSV with your retention rates by cohort & period. I recommend looking at your data broken down by a period of 1 day, and 7 days if you're just starting to dig into your churn rates. Using excel's conditional formatting and adding a color scale to the file in excel is also very handy.
 
